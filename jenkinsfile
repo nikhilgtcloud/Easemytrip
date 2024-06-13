@@ -20,9 +20,9 @@ pipeline {
         }
         stage('Code QA Execution') {
              steps {
-                  echo 'code test in progress'
-                  sh 'mvn clean test'
-                  echo 'code test is completed'
+                 echo 'code test in progress'
+                 sh 'mvn clean test'
+                 echo 'code test is completed'
         }
         stage('Code Package') {
             steps {
