@@ -34,7 +34,7 @@ pipeline {
         stage('Building & Tag Docker Image') {
             steps {
                 script {
-                    def imageName = nikhilthakur969/easemytrip:dev-easymytrip-v.1.${env.BUILD_NUMBER}
+                    def imageName = nikhilthakur969/easemytrip:dev-easymytrip-v.1.${BUILD_NUMBER}
                     echo "Starting Building Docker Image: ${imageName}"
                     sh "docker build -t ${imageName} ."
                     echo 'Docker Image Build Completed'
