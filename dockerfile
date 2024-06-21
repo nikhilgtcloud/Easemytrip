@@ -10,13 +10,13 @@ RUN update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java &
     update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
 
 # Copy the JAR file into the Tomcat webapps directory
-COPY /var/lib/jenkins/workspace/easemytrip-pipeline/target/easymytrip*.jar /usr/local/tomcat/webapps
+COPY ./target/easemytrip*.jar /usr/local/tomcat/webapps
 
 # Expose port 8080
 EXPOSE 8080
 
 # Set the user
-USER easymytrip
+USER easemytrip
 
 # Set the working directory
 WORKDIR /usr/local/tomcat/webapps
