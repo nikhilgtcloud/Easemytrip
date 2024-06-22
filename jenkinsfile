@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "nikhilthakur969/easemytrip:dev-easemytrip-v.1.${env.BUILD_NUMBER}"
         ECR_IMAGE_NAME = "730335224732.dkr.ecr.ap-south-1.amazonaws.com/easemytrip:dev-easemytrip-v.1.${env.BUILD_NUMBER}"
-        NEXUS_IMAGE_NAME = "3.110.131.126:8085/easemytrip:dev-easemytrip-v.1.${env.BUILD_NUMBER}"
+        NEXUS_IMAGE_NAME = "13.127.166.7:8085/easemytrip:dev-easemytrip-v.1.${env.BUILD_NUMBER}"
     }
 
     options {
@@ -92,7 +92,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh 'docker login http://3.110.131.126:8085/repository/easemytrip/ -u admin -p ${PASSWORD}'
+                        sh 'docker login http://13.127.166.7:8085/repository/easemytrip/ -u admin -p ${PASSWORD}'
                         echo "Push Docker Image to Nexus: In Progress"
                         sh "docker tag ${env.IMAGE_NAME} ${env.NEXUS_IMAGE_NAME}"
                         sh "docker push ${env.NEXUS_IMAGE_NAME}"
